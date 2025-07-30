@@ -83,9 +83,6 @@ Each endpoint is supported by robust payload validation and detailed API documen
 - **[`/v1/media/metadata`](https://github.com/stephengpope/no-code-architects-toolkit/blob/main/docs/media/metadata.md)**
   - Extracts comprehensive metadata from media files including format, codecs, resolution, and bitrates.
 
-- **[`/v1/media/bilibili/subtitle`](https://github.com/stephengpope/no-code-architects-toolkit/blob/main/docs/media/bilibili_subtitle.md)**
-  - Downloads subtitles from Bilibili videos with support for multiple languages and formats.
-
 ### S3
 
 - **[`/v1/s3/upload`](https://github.com/stephengpope/no-code-architects-toolkit/blob/main/docs/s3/upload.md)**
