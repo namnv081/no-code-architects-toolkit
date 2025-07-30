@@ -113,6 +113,16 @@ else:
 | `vi` | Tiếng Việt |
 | `th` | Tiếng Thái |
 | `id` | Tiếng Indonesia |
+| `danmaku` | Danmaku (弹幕) - Bullet comments |
+
+## 📝 Định dạng subtitle
+
+| Định dạng | Mô tả | Hỗ trợ |
+|-----------|-------|--------|
+| `srt` | SubRip Subtitle | ✅ (nếu có) |
+| `vtt` | Web Video Text Tracks | ✅ (nếu có) |
+| `json3` | YouTube JSON format | ✅ (nếu có) |
+| `xml` | Danmaku XML format | ✅ (mặc định cho danmaku) |
 
 ## 📤 Response mẫu
 
@@ -187,7 +197,11 @@ else:
 2. **Hỗ trợ nhiều nền tảng**: API này hoạt động với Bilibili, YouTube, và nhiều nền tảng khác
 3. **Cookie**: Cần cookie hợp lệ cho video private
 4. **Cloud Storage**: Subtitle sẽ được upload lên cloud storage nếu `cloud_upload=true`
-5. **Định dạng**: SRT là định dạng phổ biến nhất
+5. **Định dạng**: 
+   - SRT là định dạng phổ biến nhất cho subtitle
+   - XML là định dạng mặc định cho danmaku (弹幕)
+6. **Danmaku**: Nhiều video Bilibili chỉ có danmaku (bullet comments), không có subtitle thực sự
+7. **Fallback**: Nếu định dạng yêu cầu không có sẵn, API sẽ sử dụng định dạng có sẵn đầu tiên
 
 ## 🔗 Liên kết
 
