@@ -258,9 +258,14 @@ def download_media(job_id, data):
                                 if subtitle['ext'] == requested_format:
                                     subtitle_data = subtitle
                                     break
-                                    
+                            
+                            # If requested format not found, use the first available format
+                            if not subtitle_data and subtitle_list:
+                                subtitle_data = subtitle_list[0]
+                                logger.warning(f"Job {job_id}: Requested format {requested_format} not available for {lang}, using {subtitle_data['ext']}")
+                            
                             if not subtitle_data:
-                                logger.warning(f"Job {job_id}: Requested format {requested_format} not available for {lang}")
+                                logger.warning(f"Job {job_id}: No subtitle data available for {lang}")
                                 continue
                             
                             # If cloud upload is requested, download and upload the subtitle
@@ -269,6 +274,7 @@ def download_media(job_id, data):
                                     subtitle_path = download_file(subtitle_data['url'], temp_dir)
                                     cloud_url = upload_file(subtitle_path)
                                     subtitle_data['url'] = cloud_url
+                                    subtitle_data['cloud_url'] = cloud_url
                                 except Exception as e:
                                     logger.warning(f"Job {job_id}: Failed to download subtitle for {lang}: {str(e)}")
                                     continue
